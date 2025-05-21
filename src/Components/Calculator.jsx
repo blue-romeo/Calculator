@@ -7,6 +7,13 @@ const Calculator = () => {
     const clear = () => {
         setInput('')
     }
+    function display(value) {
+      setInput(input + value)
+
+    }
+    const calculate = () =>{
+      setInput(eval(input))
+    }
   return (
     <form className='calculator' name='calc'>
         <input type='text' className='value' value={input}/>
@@ -25,14 +32,14 @@ const Calculator = () => {
         
        
         
-
+        <span onClick={() => display('0')}>0</span>
         <span onClick={() => display('1')}>1</span>
         <span onClick={() => display('2')}>2</span>
         <span onClick={() => display('3')}>3</span>
-        <span onClick={() => display('00')}>0</span>
-        <span onClick={() => display('0')}>00</span>
+        
+        <span onClick={() => display('00')}>00</span>
         <span onClick={() => display('.')}>.</span>
-        <span onClick={() => display('=')}>=</span>
+        <span className={'num equal'} onClick={() => calculate()}>=</span>
 
     </form>
   )
